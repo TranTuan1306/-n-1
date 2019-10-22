@@ -9,24 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Shopping Mall</title>
 	
-	<!-- jQuery -->
-    <script src="/static/js/jquery.min.js"></script>
-    
-    <!-- jQuery Validation -->
-    <script src="/static/js/jquery.validate.min.js"></script>
-	
-	<!-- jQuery UI -->
-    <link href="/static/css/jquery-ui.min.css" rel="stylesheet" />
-    <script src="/static/js/jquery-ui.min.js"></script>
-	
-	<!-- Bootstrap -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="/static/js/bootstrap.min.js"></script>
-	
-	<!-- eStore -->
-    <link href="/static/css/estore.css" rel="stylesheet" />
-    <script src="/static/js/estore.js"></script>
-    
+
 </head>
 <body>
     <div class="container">
