@@ -57,3 +57,19 @@
 	font-size: larger;
 	text-shadow:0 0 2px darkgray;
 }
+
+/*--product list*/
+.nn-prod{
+	text-align: center;
+	font-size: smaller;
+}
+.nn-prod .panel-body img{
+	height: 150px;
+	max-width: 98%;
+}
+.nn-prod .panel-footer .col-sm-3{
+	font-family: impact;
+	font-size: 20px;
+	color: green;
+}
+
