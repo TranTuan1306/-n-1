@@ -47,4 +47,16 @@ public class ProductDAO {
 		Session session = factory.getCurrentSession();
 		session.delete(session.find(Product.class, id));
 	}
+	
+	public List<Product> findByKeywords(String keywords) {
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Product p WHERE "
+				+ " p.name LIKE :kw OR "
+				+ " p.category.name LIKE :kw OR "
+				+ " p.category.nameVN LIKE :kw";
+		TypedQuery<Product> query = session.createQuery(hql, Product.class);
+		query.setParameter("kw", "%"+keywords+"%");
+		List<Product> list = query.getResultList();
+		return list;
+	}
 }
