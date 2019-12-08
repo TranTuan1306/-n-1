@@ -9,7 +9,7 @@
     <div class="panel-body">
         <img class="col-sm-5" src="/static/images/shoppingcart.gif" />
         <ul class="col-sm-7">
-            <li><span id="cart-cnt">${cart.count}</span> items</li>
+            <li><span id="cardt-cnt">${cart.count}</span> items</li>
             <li>$ <span id="cart-amt">${cart.amount}</span></li>
              <li><a href="/cart/view">View Cart</a></li>
          </ul>

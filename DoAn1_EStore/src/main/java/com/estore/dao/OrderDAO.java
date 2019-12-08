@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.estore.entity.Order;
+import com.estore.entity.OrderDetail;
 
 @Transactional
 @Repository
@@ -46,5 +47,13 @@ public class OrderDAO {
 	public void delete(Integer id) {
 		Session session = factory.getCurrentSession();
 		session.delete(session.find(Order.class, id));
+	}
+
+	public void create(Order order, List<OrderDetail> details) {
+		Session session = factory.getCurrentSession();
+		session.save(order);
+		for(OrderDetail detail : details) {
+			session.save(detail);
+		}
 	}
 }

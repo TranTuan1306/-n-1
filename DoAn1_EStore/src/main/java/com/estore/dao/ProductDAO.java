@@ -59,4 +59,34 @@ public class ProductDAO {
 		List<Product> list = query.getResultList();
 		return list;
 	}
+	public List<Product> findBySpecials(Integer id) {
+		Session session = factory.getCurrentSession();
+		
+		String hql = "FROM Product p";
+		TypedQuery<Product> query = null;
+		switch (id) {
+		case 0: 
+			hql = "FROM Product p WHERE p.special=true";
+			query = session.createQuery(hql, Product.class);
+			break;
+		case 1: 
+			hql = "FROM Product p WHERE p.available=true";
+			query = session.createQuery(hql, Product.class);
+			break;
+		case 2: 
+			hql = "FROM Product p "
+					+ " WHERE p.discount > 0 ORDER BY p.discount DESC";
+			query = session.createQuery(hql, Product.class);
+			query.setMaxResults(12);
+			break;
+		case 3:
+			hql = "FROM Product p "
+					+ " WHERE p.viewCount > 0 ORDER BY p.viewCount DESC";
+			query = session.createQuery(hql, Product.class);
+			query.setMaxResults(12);
+			break;
+		}
+		List<Product> list = query.getResultList();
+		return list;
+	}
 }

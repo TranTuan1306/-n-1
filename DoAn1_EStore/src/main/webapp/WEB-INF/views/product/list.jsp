@@ -25,14 +25,14 @@
 						<div class="panel-footer">
 							<div class="row">
 								<div class="col-sm-3">${p.unitPrice}</div>
-								<div class="col-sm-9" text-right>
+								<div class="col-sm-9 text-right">
 									<button class="btn btn-sm btn-primary" data-id-add-to-cart="${p.id}">
 										<span class="glyphicon glyphicon-shopping-cart"></span>
 									</button>
 									<button class="btn btn-sm btn-danger" data-id-mark-as-favorite="${p.id}">
-										<span class="glyphicon glyphicon-heart-empty"></span>
+										<span class="glyphicon glyphicon-heart"></span>
 									</button>
-									<button class="btn btn-sm btn-info" data-id-send-to-friend="${p.id}">
+									<button class="btn btn-sm btn-info" data-id-send-to-friend="${p.id}" data-toggle="modal" data-target="#myModal">
 										<span class="glyphicon glyphicon-envelope"></span>
 									</button>
 								</div>
@@ -43,5 +43,6 @@
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>
+	<jsp:include page="_modal.jsp"></jsp:include>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <body>
@@ -21,16 +22,22 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Tài khoản <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Đăng nhập</a></li>
-                            <li><a href="">Quên mật khẩu</a></li>
-                            <li><a href="">Đăng ký thành viên</a></li>
-                            <li class="divider"></li>
-                            <li><a href="">Đăng xuất</a></li>
-                            <li><a href="">Đổi mật khẩu</a></li>
-                            <li><a href="">Cập nhật hồ sơ</a></li>
-                            <li class="divider"></li>
-                            <li><a href="">Đơn hàng</a></li>
-                            <li><a href="">Hàng đã mua</a></li>
+                        <c:choose> 
+                        	<c:when test="${empty sessionScope.user}">
+	                            <li><a href="/account/login">Đăng nhập</a></li>
+	                            <li><a href="/account/forgot">Quên mật khẩu</a></li>
+	                            <li><a href="/account/register">Đăng ký thành viên</a></li>
+                            </c:when>
+                            <c:otherwise>
+	                            <li class="divider"></li>
+	                            <li><a href="/account/logoff">Đăng xuất</a></li>
+	                            <li><a href="/account/change">Đổi mật khẩu</a></li>
+	                            <li><a href="/account/edit">Cập nhật hồ sơ</a></li>
+	                            <li class="divider"></li>
+	                            <li><a href="/order/list">Đơn hàng</a></li>
+	                            <li><a href="/order/items">Hàng đã mua</a></li>
+                        	</c:otherwise>
+                        </c:choose>
                         </ul>
                     </li>
                 </ul>

@@ -2,20 +2,18 @@
 <!DOCTYPE html>
 <html>
 <body>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <span class="glyphicon glyphicon-th-list"></span>
-                        <strong>Specials</strong>
-                    </div>
-
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Điện thoại di động</a>
-                        <a href="#" class="list-group-item">Máy tính xách tay</a>
-                        <a href="#" class="list-group-item">Máy tính để bàn</a>
-                        <a href="#" class="list-group-item">Quạt máy</a>
-                        <a href="#" class="list-group-item">Tivi</a>
-                        <a href="#" class="list-group-item">Tủ lạnh</a>
-                    </div>
-                </div>
+	<div class="panel panel-default">
+	    <div class="panel-heading">
+	        <span class="glyphicon glyphicon-th-list"></span>
+	        <strong>Specials</strong>
+	    </div>
+	
+	    <div class="list-group">
+	        <a href="/prod/list-by-spec/0" class="list-group-item">Hàng đặc biệt</a>
+	        <a href="/prod/list-by-spec/1" class="list-group-item">Hàng mới nhập</a>
+	        <a href="/prod/list-by-spec/2" class="list-group-item">Hàng giảm giá</a>
+	        <a href="/prod/list-by-spec/3" class="list-group-item">Hàng xem nhiều</a>
+	    </div>
+	</div>
 </body>
 </html>

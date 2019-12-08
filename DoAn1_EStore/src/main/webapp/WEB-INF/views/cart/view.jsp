@@ -29,7 +29,7 @@
 					<td>${p.unitPrice}</td>
 					<td>${p.discount}</td>
 					<td><input data-update-info="${p.id}~${p.discount}~${p.unitPrice}" value="${p.quantity}" type="number" min="1" style = "width:60px"></td>
-					<td class="nn-cart">${p.quantity * p.unitPrice * (1-p.discount)}</td>
+					<td class="nn-amt">${p.quantity * p.unitPrice * (1-p.discount)}</td>
 					<td>
 						<button class="btn btn-info btn-sm" data-id-remove-from-cart="${p.id}">
 							<span class="glyphicon glyphicon-trash"></span>
@@ -44,7 +44,7 @@
 		<a href="" class="btn btn-danger btn-lg">
 			<span class="glyphicon glyphicon-hand-left"></span> Continue
 		</a>
-		<a href="" class="btn btn-info btn-lg">
+		<a href="" class="btn btn-info btn-lg nn-clear">
 			<span class="glyphicon glyphicon-trash"></span> clear
 		</a>
 		<a href="" class="btn btn-success btn-lg">
