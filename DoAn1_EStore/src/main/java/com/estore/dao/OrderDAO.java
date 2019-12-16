@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.estore.entity.Order;
 import com.estore.entity.OrderDetail;
-
+import com.estore.entity.Product;
 @Transactional
 @Repository
 public class OrderDAO {
@@ -56,4 +56,26 @@ public class OrderDAO {
 			session.save(detail);
 		}
 	}
+	public List<Order> findByUser(String userId) {
+		Session session = factory.getCurrentSession();
+		String hql = "from Order o where o.customer.id=:uid order by o.orderDate desc";
+		TypedQuery<Order> query = session.createQuery(hql, Order.class);
+		query.setParameter("uid", userId);
+		List<Order> list = query.getResultList();
+		return list;
+	}
+		
+	public List<Product> findItemsByUser(String userId) {
+		Session session = factory.getCurrentSession();
+		String hql = "SELECT dISTINCT d.product FROM OrderDetail d "
+				+ " WHERE d.order.customer.id=:uid ";
+		TypedQuery<Product> query = session.createQuery(hql, Product.class);
+		query.setParameter("uid", userId);
+		List<Product> list = query.getResultList();
+		return list;
+	}
+	
+	
+	
+	
 }

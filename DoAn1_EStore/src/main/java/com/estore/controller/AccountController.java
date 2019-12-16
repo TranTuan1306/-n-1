@@ -127,15 +127,10 @@ public class AccountController {
 		else {
 			dao.create(user);
 			model.addAttribute("message", "đăng lý thành công!");
+			user.setActivated(true);
+			dao.update(user);
 		}
 		return "account/register";
-	}
-	@RequestMapping("/account/activate/{id}")
-	public String activate(@PathVariable("id") String id) {
-		Customer user = dao.findById(id);
-		user.setActivated(true);
-		dao.update(user);
-		return "redirect:/account/login";
 	}
 	
 //	 forgot password
@@ -209,7 +204,7 @@ public class AccountController {
 			String filename = file.getOriginalFilename();
 			filename = UUID.randomUUID()+filename.substring(filename.lastIndexOf('.'));
 			user.setPhoto(filename);
-			String path = app.getRealPath("/static/images/customer/"+user.getPhoto());
+			String path = app.getRealPath("/static/images/customers/"+user.getPhoto());
 			try {
 				file.transferTo(new File(path));
 			}
@@ -222,7 +217,8 @@ public class AccountController {
 		}
 		else {
 			dao.update(user);
-			session.setAttribute("user", "Cập nhật thành công !");
+			session.setAttribute("user", user);
+			session.setAttribute("message", "Cập nhật thành công !");
 		}
 		return "account/edit";
 	}

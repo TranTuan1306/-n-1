@@ -18,7 +18,7 @@ public class HibernateConfig {
 	public DataSource getDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		dataSource.setUrl("jdbc:sqlserver://localhost;database=EShopV10");
+		dataSource.setUrl("jdbc:sqlserver://localhost;database=eStore");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("123");
 		return dataSource;

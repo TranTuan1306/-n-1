@@ -16,5 +16,6 @@
 			<jsp:include page="../shared/_items.jsp"/>
 		</c:otherwise>
 	</c:choose>
+	
 </body>
 </html>

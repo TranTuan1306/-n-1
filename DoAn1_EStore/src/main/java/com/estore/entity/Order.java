@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -26,6 +28,7 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	@DateTimeFormat(pattern="MM/dd/yyyy")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date orderDate = new Date();
 	private String address;

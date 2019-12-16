@@ -11,5 +11,9 @@
 	<definition name="*/*" extends="estore">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>
+	
+	<definition name="admin/*/*" template="/WEB-INF/views/admin/layout.jsp">
+		<put-attribute name="body" value="/WEB-INF/views/admin/{1}/{2}.jsp" />
+	</definition>
 
 </tiles-definitions>

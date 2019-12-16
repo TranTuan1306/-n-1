@@ -47,7 +47,7 @@
 		<a href="" class="btn btn-info btn-lg nn-clear">
 			<span class="glyphicon glyphicon-trash"></span> clear
 		</a>
-		<a href="" class="btn btn-success btn-lg">
+		<a href="/order/checkout" class="btn btn-success btn-lg">
 			<span class="glyphicon glyphicon-hand-right"></span> check out
 		</a>
 	</div>

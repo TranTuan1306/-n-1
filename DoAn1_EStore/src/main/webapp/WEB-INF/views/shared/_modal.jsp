@@ -33,6 +33,5 @@
         <button class="btn btn-default" data-id-send="1005">Gửi</button>
       </div>
     </div>
-
   </div>
 </div>

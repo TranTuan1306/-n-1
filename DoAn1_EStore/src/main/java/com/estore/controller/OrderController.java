@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.estore.dao.OrderDAO;
@@ -30,6 +31,30 @@ public class OrderController {
 	OrderDAO odao;
 	@Autowired
 	OrderDetailDAO ddao;
+
+	@RequestMapping("order/items")
+	public String purchasedItems(Model model) {
+		Customer user = (Customer)session.getAttribute("user");
+		List<Product> products = odao.findItemsByUser(user.getId());
+		
+		model.addAttribute("prods", products);
+		return "order/items";
+	}
+	
+	@RequestMapping("order/detail/{id}")
+	private String detail(Model model, @PathVariable("id") Integer id) {
+		Order order = odao.findById(id);
+		model.addAttribute("order", order);
+		return "order/detail";
+	}
+	@RequestMapping("/order/list")
+	private String list(Model model) {
+		Customer user = (Customer)session.getAttribute("user");
+		List<Order> orders = odao.findByUser(user.getId());
+		
+		model.addAttribute("orders", orders);
+		return "order/list";
+	} 
 	
 	@RequestMapping("/order/checkout")
 	public String checkout(Model model) {
