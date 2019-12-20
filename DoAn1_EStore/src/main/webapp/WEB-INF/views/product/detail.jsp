@@ -10,8 +10,10 @@
 	<h1>PRODUCT DETAILS</h1>
 	
 	<div class="row">
-		<div class="col-sm-5"><img src="/static/images/products/${prod.image}"></div>
-		<div class="col-sm-7">
+		<div class="col-sm-7" >
+			<img src="/static/images/products/${prod.image}" height="250px">
+		</div>
+		<div class="col-sm-5">
 			<ul>
 				<li>Name: ${prod.name}</li>
 				<li>Unit Price: $<f:formatNumber value="${prod.unitPrice}" pattern="#,###.00"/></li>
@@ -28,8 +30,14 @@
 	<hr>
 	<h3>HÀNG CÙNG LOẠI</h3>
 	<c:forEach var="p" items="${prod.category.products}">
-		<p><a href="/prod/detail/${p.id}">${p.name}</a> / ${p.unitPrice}</p>
-		<img class="dList-img" src="/static/images/products/${p.image}">
+		<p>
+			<a href="/prod/detail/${p.id}">
+				<img class="dList-img" src="/static/images/products/${p.image}">
+				${p.name}
+			</a>
+			 / ${p.unitPrice}
+		</p>
+		
 	</c:forEach>
 </body>
 </html>

@@ -103,19 +103,19 @@ public class AccountController {
 	public String register(Model model,
 			@Validated @ModelAttribute("user") Customer user,
 			BindingResult errors,
-			@RequestParam("_photo") MultipartFile file) {
+			@RequestParam("_photo") MultipartFile _photo) {
 		user.setActivated(false);
 		user.setAdmin(false);
-		if(file.isEmpty()) {
+		if(_photo.isEmpty()) {
 			user.setPhoto("user.png");
 		}
 		else {
-			String filename = file.getOriginalFilename();
+			String filename = _photo.getOriginalFilename();
 			filename = UUID.randomUUID()+filename.substring(filename.lastIndexOf('.'));
 			user.setPhoto(filename);
 			String path = app.getRealPath("/static/images/customers/"+user.getPhoto());
 			try {
-				file.transferTo(new File(path));
+				_photo.transferTo(new File(path));
 			}
 			catch (Exception e) {
 				e.printStackTrace();
